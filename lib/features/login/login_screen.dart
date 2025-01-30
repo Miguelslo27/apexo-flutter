@@ -28,28 +28,11 @@ class Login extends StatelessWidget {
                         severity: InfoBarSeverity.error),
                   )
                 : null,
-            header: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const AppLogo(),
-                  StreamBuilder<Object>(
-                      stream: localSettings.stream,
-                      builder: (context, snapshot) {
-                        return ComboBox<String>(
-                          key: WK.loginLangComboBox,
-                          value: localSettings.selectedLocale.toString(),
-                          items: locale.list
-                              .map((e) => ComboBoxItem(
-                                  value: locale.list.indexOf(e).toString(), key: Key(e.$code), child: Txt(e.$name)))
-                              .toList(),
-                          onChanged: (indexString) {
-                            localSettings.selectedLocale = int.parse(indexString ?? "0");
-                            localSettings.notifyAndPersist();
-                          },
-                        );
-                      }),
-                ]),
+            header: const Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [const AppLogo()]
+            ),
             content: Center(
                 child: SizedBox(
               width: 350,

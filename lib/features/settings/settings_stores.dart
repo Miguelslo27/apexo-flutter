@@ -23,7 +23,7 @@ const _storeNameLocal = "settings_local";
 
 class GlobalSettings extends Store<Setting> {
   Map<String, String> defaults = {
-    "currency_______": "USD",
+    "currency_______": "UYU",
     "phone__________": "1234567890",
     "prescriptionFot": "",
     "permissions____": jsonEncode([false, true, true, true, true, false]),
@@ -106,8 +106,8 @@ class LocalSettings extends ObservablePersistingObject {
   LocalSettings() : super(_storeNameLocal);
 
   String dateFormat = "dd/MM/yyyy";
-  ThemeMode selectedTheme = ThemeMode.light;
-  int selectedLocale = 0;
+  ThemeMode selectedTheme = ThemeMode.dark;
+  int selectedLocale = 1;
 
   @override
   fromJson(Map<String, dynamic> json) {

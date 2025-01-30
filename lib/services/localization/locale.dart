@@ -1,11 +1,10 @@
 import "package:apexo/features/settings/settings_stores.dart";
-import "package:apexo/services/localization/en.dart";
 import "package:apexo/services/localization/es.dart";
 import "package:fluent_ui/fluent_ui.dart";
 
 class _Localization {
-  List list = [En(), Es(),];
-  get s => list[localSettings.selectedLocale];
+  List list = [Es()];
+  get s => list[0];
 }
 
 final locale = _Localization();
