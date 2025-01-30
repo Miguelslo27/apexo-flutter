@@ -20,16 +20,11 @@ void main() async {
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
 
-  if (kDebugMode) {
-    runApp(const ApexoApp());
-  } else {
-    await SentryFlutter.init(
-      (options) {
-        options.dsn = sentryDSN;
-        // options.tracesSampleRate = 1.0;
-        // options.profilesSampleRate = 1.0;
-      },
-      appRunner: () => runApp(const ApexoApp()),
-    );
-  }
+  await SentryFlutter.init((options) {
+      options.dsn = sentryDSN;
+      options.tracesSampleRate = 1.0;
+      options.profilesSampleRate = 1.0;
+    },
+    appRunner: () => runApp(const ApexoApp()),
+  );
 }

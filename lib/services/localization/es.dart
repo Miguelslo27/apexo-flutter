@@ -1,6 +1,9 @@
-import 'en.dart';
+enum Direction {
+  ltr,
+  rtl,
+}
 
-class Es implements En {
+class Es {
   Direction $direction = Direction.ltr;
   String $name = "Español";
   String $code = "es";
@@ -12,7 +15,7 @@ class Es implements En {
     "save": "Guardar",
     "reset": "Restablecer",
     "continue": "Continuar",
-    "add": "Añadir",
+    "add": "Agregar",
     "edit": "Editar",
     "delete": "Eliminar",
     "archive": "Archivar",
@@ -24,10 +27,10 @@ class Es implements En {
     "gettingImages": "Obteniendo imágenes",
 
     // call
-    "callLaboratory": "Llamar al Laboratorio",
-    "callPatient": "Llamar al Paciente",
-    "emailDoctor": "Enviar correo al Doctor",
-    "callIssuer": "Llamar al Emisor",
+    "callLaboratory": "Llamar al laboratorio",
+    "callPatient": "Llamar al paciente",
+    "emailDoctor": "Enviar correo al doctor",
+    "callIssuer": "Llamar al emisor",
 
     // screens
     "settings": "Configuraciones",
@@ -35,24 +38,25 @@ class Es implements En {
     "appointments": "Citas",
     "patients": "Pacientes",
     "doctors": "Doctores",
-    "labworks": "trabajos de lab.",
+    "labworks": "Trabajos de laboratorio",
     "statistics": "Estadísticas",
 
     // dashboard
     "admin": "Administrador",
     "fullStats": "Estadísticas completas",
     "payments": "Pagos",
-    "appointmentsToday": "Citas hoy",
-    "patientsToday": "Pacientes hoy",
-    "newPatientsToday": "Nuevos pacientes hoy",
+    "appointmentsToday": "Citas de hoy",
+    "patientsToday": "Pacientes de hoy",
+    "newPatientsToday": "Nuevos pacientes de hoy",
     "paymentsMadeToday": "Pagos realizados hoy",
-    "modeAdmin": "ADMIN",
+    "modeAdmin": "ADMINISTRADOR",
     "modeUser": "USUARIO",
-    "modeOffline": "FUERA DE LÍNEA",
+    "modeOffline": "SIN CONEXIÓN",
     "onceConnectionIsStable":
-        "Una vez que tu conexión sea estable, puedes usar el botón en la esquina superior derecha para reconectar.",
+        "Una vez que su conexión sea estable, puede usar el botón en la esquina superior derecha para reconectar.",
     "unRestrictedAccess": "acceso sin restricciones en la aplicación",
-    "restrictedAccess": "acceso restringido a algunas pantallas según lo dictado por el administrador",
+    "restrictedAccess":
+        "acceso restringido a algunas pantallas según lo dictado por el administrador",
     "youAreCurrentlyIn": "Actualmente estás en",
     "mode": "modo",
     "youHave": "Tienes",
@@ -77,11 +81,12 @@ class Es implements En {
     "upcomingAppointments": "Próximas citas",
     "doctorName": "Nombre del doctor",
     "doctorEmail": "Correo del doctor",
-    "dutyDays": "Días de servicio",
-    "addAppointment": "Añadir cita",
-    "lockToUsers": "Solo los siguientes usuarios pueden ver/editar los datos y citas de este doctor",
+    "dutyDays": "Días de trabajo",
+    "addAppointment": "Agregar cita",
+    "lockToUsers":
+        "Solo los siguientes usuarios pueden ver/editar los datos y citas de este doctor",
     "noUpcomingAppointmentsForThisDoctor":
-        "No se econtraron citas próximas. Use el botón abajo para añadir una nueva cita.",
+        "No se encontraron próximas citas. Use el botón de abajo para registrar una nueva",
 
     // days and months
     "monday": "Lunes",
@@ -114,15 +119,15 @@ class Es implements En {
     "pay": "Pagar",
     "paid": "Pagado",
     "price": "Precio",
-    "underpaid": "Insuficientemente pagado",
-    "overpaid": "Excesivamente pagado",
-    "fullyPaid": "Completamente pagado",
-    "paymentSummary": "Resumen de pagos",
+    "underpaid": "Pago insuficiente",
+    "overpaid": "Pago excesivo",
+    "fullyPaid": "Totalmente pagado",
+    "paymentSummary": "Resumen de pago",
     "editingAppointment": "Editando cita",
     "after": "Después",
     "days": "días",
     "day": "día",
-    "isDone": "La cita está completada",
+    "isDone": "La cita está hecha",
 
     // patients
     "patientDetails": "Detalles del paciente",
@@ -130,9 +135,9 @@ class Es implements En {
     "gender": "Género",
     "last visit": "Última visita",
     "total payments": "Pagos totales",
-    "daysAgo": "días atrás",
+    "daysAgo": "hace días",
     "noVisits": "Sin visitas",
-    "addNewPatient": "Añadir nuevo paciente",
+    "addNewPatient": "Agregar nuevo paciente",
     "name": "Nombre",
     "birthYear": "Año de nacimiento",
     "phone": "Teléfono",
@@ -143,16 +148,17 @@ class Es implements En {
     "male": "Masculino",
     "female": "Femenino",
     "noAppointmentsFound":
-        "No se encontraron citas para este paciente, utiliza el botón de abajo para agregar una nueva cita.",
+        "No se encontraron citas para este paciente, use el botón de abajo para agregar una nueva cita.",
     "editPatient": "Editar paciente",
     "editAppointment": "Editar cita",
     "patientPage": "Página web del paciente",
-    "patientCanUseTheFollowing": "El paciente puede usar el siguiente enlace para acceder a sus citas, pagos y fotos.",
+    "patientCanUseTheFollowing":
+        "El paciente puede usar el siguiente enlace para acceder a sus citas, pagos y fotos.",
     "printQR": "Imprimir código QR",
     "dentalNotes": "Notas dentales",
-    "showPrimary": "Mostrar principal",
-    "showPermanent": "Mostrar permanente",
-    "primary": "Principal",
+    "showPrimary": "Mostrar primarios",
+    "showPermanent": "Mostrar permanentes",
+    "primary": "Primario",
     "permanent": "Permanente",
     "lower": "Inferior",
     "upper": "Superior",
@@ -167,7 +173,7 @@ class Es implements En {
     "secondMolar": "Segundo molar",
     "thirdMolar": "Tercer molar",
     "exportSelected": "Exportar seleccionados",
-    "noPatientsSelected": "No se han seleccionado pacientes",
+    "noPatientsSelected": "No hay pacientes seleccionados",
 
     // calendar (appointments)
     "allDoctors": "Todos los doctores",
@@ -196,12 +202,12 @@ class Es implements En {
     "upload": "Subir",
     "camera": "Cámara",
     "emptyGallery": "Galería vacía",
-    "noPhotos": "No se han subido fotos todavía.",
-    "importingPhotosFromLink": "Importando fotos desde el enlace",
+    "noPhotos": "No se han subido fotos aún.",
+    "importingPhotosFromLink": "Importando fotos desde enlace",
     "useThisForm":
-        "Usa este formulario para importar fotos desde enlaces compartidos, como Google Fotos, o cualquier página web accesible que contenga fotos que desees añadir a esta cita.",
+      "Use este formulario para importar fotos desde enlaces compartidos, como Google Photos, o cualquier página web accesible que contenga fotos que desee agregar a esta cita.",
     "error": "Error",
-    "enterLink": "Ingresa una URL que contenga fotos",
+    "enterLink": "Ingrese una URL que contenga fotos",
     "import": "Importar",
 
     // labworks
@@ -222,15 +228,15 @@ class Es implements En {
     "cost": "Costo",
     "issuer": "Emisor",
     "amount": "Cantidad",
-    "amountIn": "Cantidad entrando",
+    "amountIn": "Cantidad en",
     "status": "Estado",
     "due": "Vencido",
     "receiptTitle": "Título del recibo",
     "receiptNotes": "Notas del recibo",
     "newReceipt": "Nuevo recibo",
     "receiptTags": "Etiquetas del recibo",
-    "receiptItems": "Artículos del recibo",
-    "specificForDoctors": "Específico para los doctores siguientes",
+    "receiptItems": "Elementos del recibo",
+    "specificForDoctors": "Específico para los siguientes doctores",
 
     // stats
     "pickRange": "Seleccionar rango",
@@ -255,57 +261,57 @@ class Es implements En {
     "doneAndMissedAppointmentsIn": "Citas realizadas y perdidas en",
     "distributionOfAppointments": "Distribución de citas",
     "maleAndFemalePatients": "Pacientes masculinos y femeninos",
-    "done": "realizado",
-    "missed": "perdido",
+    "done": "realizadas",
+    "missed": "perdidas",
 
     // settings
     "currency": "Moneda",
-    "currency_desc": "Código de moneda a usar en toda la aplicación (p. ej., USD, EUR, IQD).",
-    "phone_desc": "El número de teléfono se mostrará en impresiones y en la página web del paciente.",
+    "currency_desc": "Código de moneda que se utilizará en toda la aplicación (por ejemplo, USD, EUR, IQD).",
+    "phone_desc": "El número de teléfono se mostrará en impresiones y en la página web de los pacientes.",
     "prescriptionFooter": "Pie de página de la receta",
-    "prescriptionFooter_desc": "Este texto se mostrará al final de la receta.",
+    "prescriptionFooter_desc": "Este texto se mostrará en la parte inferior de la receta.",
     "language": "Idioma",
-    "language_desc": "El idioma de la interfaz para los menús, botones e información usada en toda la aplicación.",
-    "startingDayOfWeek": "Primer día de la semana",
+    "language_desc": "El idioma de la interfaz para los menús, botones e información utilizada en toda la aplicación.",
+    "startingDayOfWeek": "Día de inicio de la semana",
     "startingDayOfWeek_desc": "El día de la semana en que comienza la semana.",
     "dateFormat": "Formato de fecha",
-    "dateFormat_desc": "Este formato se usará para mostrar fechas cuando aplique.",
-    "cacheReset": "Reiniciar caché",
+    "dateFormat_desc": "Este formato se utilizará para mostrar fechas donde sea aplicable.",
+    "cacheReset": "Restablecer caché",
     "cacheReset_desc":
-        "Puedes usar el siguiente botón para reiniciar el caché de la aplicación, excepto las imágenes. Esto puede ayudar a resolver algunos problemas que podrías estar teniendo al sincronizar con otros dispositivos.",
+      "Usando el botón de abajo, puede eliminar los datos guardados localmente (excepto las imágenes), esto resolvería algunos problemas de sincronización si está enfrentando alguno.",
     "month/day/year": "Mes/Día/Año",
     "day/month/year": "Día/Mes/Año",
-    "appliesTo": "Aplica a",
+    "appliesTo": "Se aplica a",
     "all": "Todos",
     "you": "tú",
     "initialSynchronization": "Sincronización inicial",
     "synchronizing": "Sincronizando",
-    "clearingLocalData": "Limpiando datos locales",
+    "clearingLocalData": "Borrando datos locales",
 
     // advanced settings: Backups
     "backups": "Copias de seguridad",
     "refresh": "Actualizar",
     "download": "Descargar",
-    "createNew": "Crear nueva",
+    "createNew": "Crear nuevo",
     "restoreBackup": "Restaurar copia de seguridad",
     "restoreBackupWarning1":
-        "Restaurar esta copia de seguridad sobrescribirá todos los datos actuales en la aplicación. Cualquier cambio que hayas hecho después de la fecha de esta copia de seguridad",
-    "restoreBackupWarning2": "se perderá.\n\n¿Estás seguro de que deseas restaurar esta copia de seguridad?",
-    "sureDeleteBackup": "¿Estás seguro de que deseas eliminar esta copia de seguridad?",
+      "Restaurar esta copia de seguridad sobrescribirá todos los datos en la aplicación actualmente. Cualquier cambio que haya realizado después de la fecha de esta copia de seguridad",
+    "restoreBackupWarning2": "se perderá.\n\n¿Está seguro de que desea restaurar esta copia de seguridad?",
+    "sureDeleteBackup": "¿Está seguro de que desea eliminar esta copia de seguridad?",
     "backupDate": "Fecha de la copia de seguridad",
-    "useTheFollowingLinkToDownloadTheBackup": "Usa el siguiente enlace para descargar la copia de seguridad",
+    "useTheFollowingLinkToDownloadTheBackup": "Use el siguiente enlace para descargar la copia de seguridad",
 
     // advanced settings: Admins
     "admins": "Administradores",
     "accountCreated": "Cuenta creada",
     "editAdmin": "Editar administrador",
-    "validEmailMustBeProvided": "Debe proporcionarse un correo electrónico válido",
+    "validEmailMustBeProvided": "Debe proporcionar un correo electrónico válido",
     "password": "Contraseña",
-    "leaveBlankToKeepUnchanged": "Deja en blanco para mantener sin cambios",
+    "leaveBlankToKeepUnchanged": "Deje en blanco para mantener sin cambios",
     "updatingPassword": "Actualizando contraseña",
-    "leaveItEmpty": "Deja el campo de contraseña vacío si no deseas cambiarlo.",
+    "leaveItEmpty": "Deje el campo de contraseña vacío si no desea cambiarla.",
     "newAdmin": "Nuevo administrador",
-    "minimumPasswordLength": "Contraseña de al menos 10 caracteres",
+    "minimumPasswordLength": "Contraseña de mínimo 10 caracteres",
 
     // advanced settings: Users
     "users": "Usuarios",
@@ -314,24 +320,24 @@ class Es implements En {
 
     // advanced settings: Permissions
     "permissions": "Permisos de usuario",
-    "usersCanAccess": "Los usuarios pueden acceder a",
+    "usersCanAccess": "Los usuarios pueden acceder",
     "permissionsNotice":
-        "Los siguientes permisos se aplican a los usuarios listados arriba y al acceso fuera de línea. Sin embargo, los administradores como tú, tienen acceso sin restricciones en la aplicación, a menos que estén fuera de línea.",
+      "Los siguientes permisos se aplican a los usuarios listados arriba y al acceso sin conexión. Sin embargo, los administradores como usted, tienen acceso sin restricciones en la aplicación, a menos que estén sin conexión.",
 
     // advanced settings: prod tests
     "prodTests": "Pruebas de producción",
     "fileStorageTest": "Prueba de almacenamiento de archivos",
-    "fileStorageTestDesc": "Usa el siguiente botón para probar si el almacenamiento S3 está funcionando correctamente.",
-    "fileStorageButton": "Probar configuración S3",
+    "fileStorageTestDesc": "Use el siguiente botón para probar si el almacenamiento S3 está funcionando correctamente.",
+    "fileStorageButton": "Probar configuración de S3",
     "fileStorageFail": "La configuración de S3 falló",
     "fileStorageSuccess": "La configuración de S3 está funcionando correctamente",
-    "emailTest": "Prueba de correo",
+    "emailTest": "Prueba de correo electrónico",
     "emailTestDesc":
-        "Usa el siguiente botón para probar si tu servidor puede enviar correos electrónicos correctamente. Un correo parecido a una reestablecimiento de contraseña debería ser entregado a la dirección de correo objetivo.",
-    "targetEmail": "Correo objetivo",
+      "Use el siguiente botón para probar si su servidor puede enviar correos electrónicos correctamente. Un correo electrónico similar a un restablecimiento de contraseña debería ser entregado a la dirección de correo electrónico objetivo.",
+    "targetEmail": "Correo electrónico objetivo",
     "emailTestButton": "Enviar correo de prueba",
-    "emailTestFail": "La prueba de correo falló",
-    "emailTestSuccess": "Correo enviado exitosamente, por favor revisa tu bandeja de entrada.",
+    "emailTestFail": "La prueba de correo electrónico falló",
+    "emailTestSuccess": "Correo enviado con éxito, por favor revise su bandeja de entrada.",
     "fail": "Fallar",
     "success": "Éxito",
 
@@ -339,20 +345,20 @@ class Es implements En {
     "login": "Iniciar sesión",
     "resetPassword": "Restablecer contraseña",
     "serverUrl": "URL del servidor",
-    "proceedOffline": "Proceder fuera de línea",
-    "youLLGet": "Obtendrás el enlace de restablecimiento por correo",
-    "beenSent": "Instrucciones para restablecer la contraseña han sido enviadas, revisa tu bandeja de entrada.",
+    "proceedOffline": "Continuar sin conexión",
+    "youLLGet": "Recibirás el enlace de restablecimiento por correo electrónico",
+    "beenSent": "Las instrucciones para restablecer la contraseña se han enviado, revise su bandeja de entrada.",
 
     // other
-    "sureArchiveSelected": "¿Estás seguro de que deseas archivar los elementos seleccionados?",
-    "sureClosePanel": "¿Estás seguro de que deseas cerrar el panel? Todos los cambios no guardados se perderán.",
+    "sureArchiveSelected": "¿Está seguro de que desea archivar los elementos seleccionados?",
+    "sureClosePanel": "¿Está seguro de que desea cerrar este panel? Se perderán los cambios no guardados.",
     "sure": "Seguro",
-    "back": "Regresar",
+    "back": "Atrás",
     "firstLaunchDialogTitle": "Bienvenido a Apexo",
     "firstLaunchDialogContent":
-        "Has instalado Apexo exitosamente. Sin embargo, para una mejor experiencia y para uso real, tendrás un par de cosas que configurar. Escanea el código QR de abajo para comenzar.",
+      "Ha instalado Apexo con éxito. Sin embargo, para una mejor experiencia y para uso en el mundo real, tendrá algunas cosas que configurar. Escanee el código QR a continuación para comenzar.",
     "newVersionDialogTitle": "Nueva versión disponible",
     "newVersionDialogContent":
-        "Una nueva versión de Apexo está disponible. Por favor actualiza a la última versión para obtener la mejor experiencia. Escanea el código QR de abajo para comenzar.",
+      "Una nueva versión de Apexo está disponible. Por favor, actualice a la última versión para obtener la mejor experiencia. Escanee el código QR a continuación para comenzar.",
   };
 }
