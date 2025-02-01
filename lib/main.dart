@@ -2,7 +2,6 @@ import 'package:apexo/app/app.dart';
 import 'package:apexo/sentry_dsn.dart';
 import 'package:apexo/utils/init_stores.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
