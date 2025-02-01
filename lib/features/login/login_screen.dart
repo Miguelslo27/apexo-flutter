@@ -14,127 +14,109 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: loginCtrl.loginError.stream,
-        builder: (context, _) {
-          return ScaffoldPage(
-            padding: EdgeInsets.zero,
-            bottomBar: loginCtrl.loginError().isNotEmpty
-                ? Padding(
-                    padding: const EdgeInsets.only(bottom: 18.0),
-                    child: InfoBar(
-                        key: WK.loginErr,
-                        title: Txt(txt("error")),
-                        content: Txt(loginCtrl.loginError()),
-                        severity: InfoBarSeverity.error),
-                  )
-                : null,
-            header: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const AppLogo(),
-                  StreamBuilder<Object>(
-                      stream: localSettings.stream,
-                      builder: (context, snapshot) {
-                        return ComboBox<String>(
-                          key: WK.loginLangComboBox,
-                          value: localSettings.selectedLocale.toString(),
-                          items: locale.list
-                              .map((e) => ComboBoxItem(
-                                  value: locale.list.indexOf(e).toString(), key: Key(e.$code), child: Txt(e.$name)))
-                              .toList(),
-                          onChanged: (indexString) {
-                            localSettings.selectedLocale = int.parse(indexString ?? "0");
-                            localSettings.notifyAndPersist();
-                          },
-                        );
-                      }),
-                ]),
-            content: Center(
-                child: SizedBox(
+      stream: loginCtrl.loginError.stream,
+      builder: (context, _) {
+        return ScaffoldPage(
+          padding: EdgeInsets.zero,
+          bottomBar: loginCtrl.loginError().isNotEmpty
+            ? Padding(
+                padding: const EdgeInsets.only(bottom: 18.0),
+                child: InfoBar(
+                  key: WK.loginErr,
+                  title: Txt(txt("error")),
+                  content: Txt(loginCtrl.loginError()),
+                  severity: InfoBarSeverity.error
+                ),
+              )
+            : null,
+          content: Center(
+            child: SizedBox(
               width: 350,
               height: 350,
               child: MStreamBuilder(
-                  streams: [
-                    loginCtrl.selectedTab.stream,
-                    loginCtrl.loginError.stream,
-                    loginCtrl.resetInstructionsSent.stream,
-                    localSettings.stream,
-                    loginCtrl.obscureText.stream,
-                  ],
-                  builder: (context, _) {
-                    return TabView(
-                        currentIndex: loginCtrl.selectedTab(),
-                        onChanged: (input) {
-                          if (loginCtrl.loadingIndicator().isEmpty) loginCtrl.selectedTab(input);
-                        },
-                        closeButtonVisibility: CloseButtonVisibilityMode.never,
-                        tabs: [
-                          Tab(
-                            key: WK.loginTab,
-                            text: Txt(txt("login")),
-                            icon: const Icon(FluentIcons.authenticator_app),
-                            body: buildTabContainer(context, [
-                              serverField(),
-                              emailField(),
-                              passwordField(),
-                            ], [
-                              FilledButton(
-                                key: WK.btnLogin,
-                                onPressed: loginCtrl.loginButton,
-                                child: Row(children: [
-                                  const Icon(FluentIcons.forward),
-                                  const SizedBox(width: 10),
-                                  Txt(txt("login"))
-                                ]),
-                              ),
-                              if (loginCtrl.loginError().isNotEmpty)
-                                FilledButton(
-                                  key: WK.btnProceedOffline,
-                                  onPressed: () => loginCtrl.loginButton(false),
-                                  style: greyButtonStyle,
-                                  child: Row(children: [
-                                    const Icon(FluentIcons.virtual_network),
-                                    const SizedBox(width: 10),
-                                    Txt(txt("proceedOffline"))
-                                  ]),
-                                ),
+                streams: [
+                  loginCtrl.selectedTab.stream,
+                  loginCtrl.loginError.stream,
+                  loginCtrl.resetInstructionsSent.stream,
+                  localSettings.stream,
+                  loginCtrl.obscureText.stream,
+                ],
+                builder: (context, _) {
+                  return TabView(
+                    currentIndex: loginCtrl.selectedTab(),
+                    onChanged: (input) {
+                      if (loginCtrl.loadingIndicator().isEmpty) loginCtrl.selectedTab(input);
+                    },
+                    closeButtonVisibility: CloseButtonVisibilityMode.never,
+                    tabs: [
+                      Tab(
+                        key: WK.loginTab,
+                        text: Txt(txt("login")),
+                        icon: const Icon(FluentIcons.authenticator_app),
+                        body: buildTabContainer(context, [
+                          serverField(),
+                          emailField(),
+                          passwordField(),
+                        ], [
+                          FilledButton(
+                            key: WK.btnLogin,
+                            onPressed: loginCtrl.loginButton,
+                            child: Row(children: [
+                              const Icon(FluentIcons.forward),
+                              const SizedBox(width: 10),
+                              Txt(txt("login"))
                             ]),
                           ),
-                          Tab(
-                            key: WK.forgotPasswordTab,
-                            text: Txt(txt("resetPassword")),
-                            icon: const Icon(FluentIcons.password_field),
-                            body: buildTabContainer(context, [
-                              const SizedBox(height: 1),
-                              InfoBar(
-                                title: loginCtrl.resetInstructionsSent()
-                                    ? Txt(key: WK.msgSentReset, txt("beenSent"))
-                                    : Txt(key: WK.msgWillSendReset, txt("youLLGet")),
-                                severity:
-                                    loginCtrl.resetInstructionsSent() ? InfoBarSeverity.success : InfoBarSeverity.info,
-                              ),
-                              const SizedBox(height: 1),
-                              serverField(),
-                              emailField(),
-                            ], [
-                              if (loginCtrl.resetInstructionsSent() == false)
-                                FilledButton(
-                                  key: WK.btnResetPassword,
-                                  onPressed: loginCtrl.resetButton,
-                                  child: Row(children: [
-                                    const Icon(FluentIcons.password_field),
-                                    const SizedBox(width: 10),
-                                    Txt(txt("resetPassword"))
-                                  ]),
-                                ),
-                            ]),
+                          if (loginCtrl.loginError().isNotEmpty)
+                            FilledButton(
+                              key: WK.btnProceedOffline,
+                              onPressed: () => loginCtrl.loginButton(false),
+                              style: greyButtonStyle,
+                              child: Row(children: [
+                                const Icon(FluentIcons.virtual_network),
+                                const SizedBox(width: 10),
+                                Txt(txt("proceedOffline"))
+                              ]),
+                            ),
+                        ]),
+                      ),
+                      Tab(
+                        key: WK.forgotPasswordTab,
+                        text: Txt(txt("resetPassword")),
+                        icon: const Icon(FluentIcons.password_field),
+                        body: buildTabContainer(context, [
+                          const SizedBox(height: 1),
+                          InfoBar(
+                            title: loginCtrl.resetInstructionsSent()
+                                ? Txt(key: WK.msgSentReset, txt("beenSent"))
+                                : Txt(key: WK.msgWillSendReset, txt("youLLGet")),
+                            severity:
+                                loginCtrl.resetInstructionsSent() ? InfoBarSeverity.success : InfoBarSeverity.info,
                           ),
-                        ]);
-                  }),
-            )),
-          );
-        });
+                          const SizedBox(height: 1),
+                          serverField(),
+                          emailField(),
+                        ], [
+                          if (loginCtrl.resetInstructionsSent() == false)
+                            FilledButton(
+                              key: WK.btnResetPassword,
+                              onPressed: loginCtrl.resetButton,
+                              child: Row(children: [
+                                const Icon(FluentIcons.password_field),
+                                const SizedBox(width: 10),
+                                Txt(txt("resetPassword"))
+                              ]),
+                            ),
+                        ]),
+                      ),
+                    ]
+                  );
+                },
+              ),
+          )),
+        );
+      },
+    );
   }
 
   Container buildTabContainer(BuildContext context, List<Widget> fields, List<Widget> actions) {

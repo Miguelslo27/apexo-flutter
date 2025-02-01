@@ -34,44 +34,45 @@ class ApexoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: localSettings.stream,
-        builder: (context, snapshot) {
-          return FluentApp(
-            key: WK.fluentApp,
-            locale: Locale(locale.s.$code),
-            theme: localSettings.selectedTheme == ThemeMode.dark ? FluentThemeData.dark() : FluentThemeData.light(),
-            home: CupertinoTheme(
-              data: localSettings.selectedTheme == ThemeMode.dark
-                  ? const CupertinoThemeData(brightness: Brightness.dark)
-                  : const CupertinoThemeData(brightness: Brightness.light),
-              child: FluentTheme(
-                data: localSettings.selectedTheme == ThemeMode.dark ? FluentThemeData.dark() : FluentThemeData(),
-                child: MStreamBuilder(
-                  streams: [
-                    version.latest.stream,
-                    version.current.stream,
-                    launch.dialogShown.stream,
-                    launch.isFirstLaunch.stream,
-                    launch.open.stream,
-                    routes.showBottomNav.stream,
-                    routes.panels.stream,
-                    routes.minimizePanels.stream
-                  ],
-                  builder: (BuildContext context, _) {
-                    bContext = context;
-                    return Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        buildAppLayout(),
-                        if (routes.showBottomNav() && routes.panels().isEmpty && launch.open()) const BottomNavBar()
-                      ],
-                    );
-                  },
-                ),
+      stream: localSettings.stream,
+      builder: (context, snapshot) {
+        return FluentApp(
+          key: WK.fluentApp,
+          locale: Locale(locale.s.$code),
+          theme: localSettings.selectedTheme == ThemeMode.dark ? FluentThemeData.dark() : FluentThemeData.light(),
+          home: CupertinoTheme(
+            data: localSettings.selectedTheme == ThemeMode.dark
+                ? const CupertinoThemeData(brightness: Brightness.dark)
+                : const CupertinoThemeData(brightness: Brightness.light),
+            child: FluentTheme(
+              data: localSettings.selectedTheme == ThemeMode.dark ? FluentThemeData.dark() : FluentThemeData(),
+              child: MStreamBuilder(
+                streams: [
+                  version.latest.stream,
+                  version.current.stream,
+                  launch.dialogShown.stream,
+                  launch.isFirstLaunch.stream,
+                  launch.open.stream,
+                  routes.showBottomNav.stream,
+                  routes.panels.stream,
+                  routes.minimizePanels.stream
+                ],
+                builder: (BuildContext context, _) {
+                  bContext = context;
+                  return Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      buildAppLayout(),
+                      if (routes.showBottomNav() && routes.panels().isEmpty && launch.open()) const BottomNavBar()
+                    ],
+                  );
+                },
               ),
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 
   void showDialogsIfNeeded() {

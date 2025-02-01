@@ -42,6 +42,12 @@ class _LoginScreenState {
     String url = urlField.text.replaceFirst(RegExp(r'/+$'), "");
     String email = emailField.text;
     String password = passwordField.text;
+
+    print(url);
+    print(email);
+    print(password);
+    print(online);
+
     login.activate(url, [email, password], online);
   }
 

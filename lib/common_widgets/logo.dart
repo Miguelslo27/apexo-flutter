@@ -38,12 +38,13 @@ class _AppLogoState extends State<AppLogo> {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Image.asset(
-              "assets/app_icon.png",
-              height: 50,
-            ),
+            // Image.asset(
+            //   "assets/app_icon.png",
+            //   height: 50,
+            // ),
             const SizedBox(width: 5),
-            Text("Apexo", style: textStyle),
+            // Text("Apexo", style: textStyle),
+            Text("Dental", style: textStyle),
             const SizedBox(width: 5),
             Text(version, style: textStyle)
           ],
